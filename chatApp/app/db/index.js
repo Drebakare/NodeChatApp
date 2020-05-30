@@ -1,11 +1,22 @@
 'use strict';
-const config = require('../db');
-const mongoose = require('mongoose').connect(config.dbURI);
+const mongoose = require('mongoose');
+const config = require('../config');
 
-mongoose.connection.on('error', error => {
-    console.log("Mongo Error: ", error);
-
+mongoose.connect(
+  config.dbURI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+mongoose.connection.on("error", (error) => {
+  console.log("Mongo Error: ", error);
 });
+
+mongoose.connection.on('connected', ()=>{
+    console.log("App Coonected");
+});
+
 
 module.exports = {
     Mongoose : mongoose
