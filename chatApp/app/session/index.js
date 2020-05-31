@@ -13,7 +13,8 @@ if (process.env.NODE_ENV === 'production') {
            mongooseConnection: db.Mongoose.connection
        })
      });
-}{
+}
+else{
     module.exports = session({
         secret: config.sessionSecret,
         resave: false,

@@ -18,9 +18,6 @@ module.exports = () =>  {
         },
         'post' : { 
 
-        },
-        'NA': (req,res,next) => {
-            res.status(404).render('404');
         }
     }
     return h.route(routes);

@@ -14,7 +14,7 @@ mongoose.connection.on("error", (error) => {
 });
 
 mongoose.connection.on('connected', ()=>{
-    console.log("App Coonected");
+    console.log("App Connected");
 });
 
 
