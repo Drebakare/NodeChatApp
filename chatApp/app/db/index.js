@@ -17,7 +17,15 @@ mongoose.connection.on('connected', ()=>{
     console.log("App Connected");
 });
 
+const chatUser = new mongoose.Schema({
+  profileId: String,
+  fullName: String,
+  profilePic: String,
+});
+
+let userModel = mongoose.model('chatUser', chatUser);
 
 module.exports = {
-    Mongoose : mongoose
+    Mongoose : mongoose,
+    userModel
 }

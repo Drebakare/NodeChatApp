@@ -1,7 +1,7 @@
 'use strict';
 const h = require('../helpers');
-
-
+const passport = require('passport');
+const facebook_passport = require('passport-facebook');
 
 module.exports = () =>  {
     let routes = {
@@ -14,7 +14,12 @@ module.exports = () =>  {
             },
             '/chat' : (req,res,next) => {
                 res.render('chat');
-            }
+            },
+            '/auth/facebook': passport.authenticate('facebook'),
+            '/auth/facebook/callback': passport.authenticate('facebook', {
+                successRedirect: '/room',
+                failureRedirect:  '/'
+            })
         },
         'post' : { 
 

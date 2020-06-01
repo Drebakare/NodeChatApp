@@ -1,5 +1,11 @@
 {
     "host" : "http://localhost:3000",
     "dbURI" : "mongodb://dbDrebakare:drebakare@cluster0-shard-00-00-to1sf.mongodb.net:27017,cluster0-shard-00-01-to1sf.mongodb.net:27017,cluster0-shard-00-02-to1sf.mongodb.net:27017/chatapp?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
-    "sessionSecret" : "catscanfly"
+    "sessionSecret" : "catscanfly",
+    "fb" : {
+        "clientID" : "675766613278437",
+        "clientSecret" : "2fbe75343c28b34e43aebea35abcc09c",
+        "callbackURl" : "https//localhost:3000/auth/facebook/callback",
+        "profileFields" : ["id", "displayName", "photos"]
+    }
 }
