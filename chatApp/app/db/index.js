@@ -20,7 +20,7 @@ mongoose.connection.on('connected', ()=>{
 const chatUser = new mongoose.Schema({
   profileId: String,
   fullName: String,
-  profilePic: String,
+  profilePic: String
 });
 
 let userModel = mongoose.model('chatUser', chatUser);

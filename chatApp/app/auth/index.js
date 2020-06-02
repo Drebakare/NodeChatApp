@@ -15,15 +15,15 @@ module.exports = () => {
             .catch(error => {console.log("error fetching the user")});
     })
     
-    let auth_processor = (access_token, refresh_token, profile, done) => {
+    let auth_processor = (accessToken, refreshToken, profile, done) => {
         h.findOne(profile.id)
-            .then(result => {
+            .then( result => {
                 if (result) {
                     done(null, result);
                 }
                 else{
                     h.createNewUser(profile)
-                    .then(newChatUser => done(newChatUser))
+                    .then( newChatUser => done (newChatUser))
                     .catch(error => {
                         console.log("Error creating the new user");
                     });

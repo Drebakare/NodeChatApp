@@ -23,7 +23,7 @@ let _registerRoutes = (routes, method) => {
 }
 
 let findOne = profileID =>{
-    db.userModel.findOne({
+    return db.userModel.findOne({
         'profileId' : profileID
     })
 }
@@ -33,7 +33,7 @@ let createNewUser = profile =>{
         let newChatUser = new db.userModel({
             profileId: profile.id,
             fullName : profile.displayName,
-            profilePic : profile.photos[0] || "",
+            profilePic : profile.photos[0].value || "",
         });
 
         newChatUser.save(error => {
