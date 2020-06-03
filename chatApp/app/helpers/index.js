@@ -55,7 +55,7 @@ let findById = id => {
                 reject(error);
             }
             else{
-                resolve(error)
+                resolve(user)
             }
         });
     })

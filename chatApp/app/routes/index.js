@@ -10,7 +10,10 @@ module.exports = () =>  {
                 res.render('login');
             },
             '/room' : (req, res, next) => {
-                res.render('rooms');
+                console.log(req.user);
+                res.render('rooms', {
+                    user : req.user
+                });
             },
             '/chat' : (req,res,next) => {
                 res.render('chat');

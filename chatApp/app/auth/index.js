@@ -11,8 +11,9 @@ module.exports = () => {
 
    passport.deserializeUser((id, done)=>{
         h.findById(id)
-            .then(user => done(null, user))
-            .catch(error => {console.log("error fetching the user")});
+        .then( user => done(null, user))
+            .catch(error => {console.log(error)});
+        
     })
     
     let auth_processor = (accessToken, refreshToken, profile, done) => {
@@ -31,4 +32,5 @@ module.exports = () => {
             })
     }
     passport.use(new facebook_passport (config.fb, auth_processor));
+
 }
