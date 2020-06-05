@@ -64,10 +64,20 @@ let route = routes => {
     _registerRoutes (routes);
     return router;
 }
+let isAuthenticated = (req,res,next) => {
+    if (req.isAuthenticated()) { // the method isAuthenticated is provided by passport
+        next();
+    }
+    else{
+        res.redirect('/');
+    }
+}
+
 module.exports = {
     route : route,
     findOne: findOne,
     createNewUser : createNewUser,
-    findById: findById
+    findById: findById,
+    isAuthenticated : isAuthenticated
 
 }

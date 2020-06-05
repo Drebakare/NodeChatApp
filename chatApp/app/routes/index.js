@@ -9,20 +9,26 @@ module.exports = () =>  {
             '/' : (req, res, next)=>{
                 res.render('login');
             },
-            '/room' : (req, res, next) => {
+            '/room' : [h.isAuthenticated,(req, res, next) => {
                 console.log(req.user);
                 res.render('rooms', {
                     user : req.user
                 });
-            },
-            '/chat' : (req,res,next) => {
-                res.render('chat');
-            },
+            }],
+            '/chat' : [h.isAuthenticated , (req,res,next) => {
+                res.render('chat', {
+                    user : req.user,
+                });
+            }],
             '/auth/facebook': passport.authenticate('facebook'),
             '/auth/facebook/callback': passport.authenticate('facebook', {
                 successRedirect: '/room',
                 failureRedirect:  '/'
-            })
+            }),
+            '/logout': (req, res,next) => {
+                req.logout();
+                res.redirect('/')
+            }
         },
         'post' : { 
 
