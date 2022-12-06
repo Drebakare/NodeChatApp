@@ -15,7 +15,7 @@
     "body-parser": "^1.19.0",
     "connect-mongo": "1.1.0",
     "ejs": "2.3.4",
-    "express": "4.13.3",
+    "express": "4.17.3",
     "express-session": "1.12.1",
     "firebase-tools": "^8.4.1",
     "mongoose": "^5.9.15",
